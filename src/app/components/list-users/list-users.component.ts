@@ -29,30 +29,27 @@ export class ListUsersComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.filterGroups = cloneDeep(this.groups)
+    if(!this.isFiltered) {
+      this.filterGroups = cloneDeep(this.groups)
+    }
 
     // search
-    if('searchText' in changes) {  
-      console.log('search')
-      console.log(this.filterGroups)
-      console.log(this.searchText)
-
-      for(let i=0; i<this.filterGroups.length; i++) {
-        console.log('in for',this.filterGroups[i])
-        this.filterGroups[i] = this.filterGroups[i].filter(
-          user => {
-            return ((user.firstName.toLowerCase().includes(this.searchText)) || 
-            (user.lastName.toLowerCase().includes(this.searchText)) ||
-            (user.email.toLowerCase().includes(this.searchText)))
-          }
-        )
-      }
-      // console.log('after search')
-      console.log('after search',this.filterGroups)
-      }
+    if('searchText' in changes || 'sortChoice' in changes) {  
+      if(this.searchText != '') {
+        for(let i=0; i<this.filterGroups.length; i++) {
+          console.log('in for',this.filterGroups[i])
+          this.filterGroups[i] = this.filterGroups[i].filter(
+            user => {
+              return ((user.firstName.toLowerCase().includes(this.searchText)) || 
+              (user.lastName.toLowerCase().includes(this.searchText)) ||
+              (user.email.toLowerCase().includes(this.searchText)))
+            }
+          )
+        }  
+      }      
 
     // sort
-    if('sortChoice' in changes) {  
+    if(this.sortChoice != '') {  
       console.log('sort') 
       console.log(this.filterGroups)
       switch (this.sortChoice) {
@@ -108,6 +105,12 @@ export class ListUsersComponent implements OnInit, OnChanges {
             ));
           break;
       }
+
+      if(this.searchText == '' && this.sortChoice != '') {
+        this.filterGroups = cloneDeep(this.groups)
+        this.sortChoice = ''
+      }
+    }
       console.log('sortChoice', this.sortChoice);
     }
   }
@@ -127,10 +130,7 @@ export class ListUsersComponent implements OnInit, OnChanges {
     {
       this.groups.push(groups);
     });
-    this.filterGroups=this.groups
-    console.log('init')
-    console.log(this.groups)
-    console.log(this.filterGroups)
-
+    // this.filterGroups=this.groups
+    // this.filterGroups = cloneDeep(this.groups)
   }
 }
