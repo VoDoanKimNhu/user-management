@@ -1,6 +1,6 @@
 import { UiService } from './../../services/ui.service';
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { groupBy, mergeMap, toArray, Subscription, of } from 'rxjs';
+import { groupBy, mergeMap, toArray, Subscription, config } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { User } from '../../User';
 import { cloneDeep } from 'lodash';
@@ -29,40 +29,33 @@ export class ListUsersComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-  // search
-  if('searchText' in changes) {  
     this.filterGroups = cloneDeep(this.groups)
-    // console.log('search')
-    // console.log(this.filterGroups)
 
-    for(let i=0; i<this.filterGroups.length; i++) {
-      this.filterGroups[i] = this.filterGroups[i].filter(
-        user => {
-          return ((user.firstName.toLowerCase().includes(this.searchText)) || 
-          (user.lastName.toLowerCase().includes(this.searchText)) ||
-          (user.email.toLowerCase().includes(this.searchText)))
-        }
-      )
-    }
-    // console.log('after search')
-    // console.log(this.filterGroups)
-    }
+    // search
+    if('searchText' in changes) {  
+      console.log('search')
+      console.log(this.filterGroups)
+      console.log(this.searchText)
+
+      for(let i=0; i<this.filterGroups.length; i++) {
+        console.log('in for',this.filterGroups[i])
+        this.filterGroups[i] = this.filterGroups[i].filter(
+          user => {
+            return ((user.firstName.toLowerCase().includes(this.searchText)) || 
+            (user.lastName.toLowerCase().includes(this.searchText)) ||
+            (user.email.toLowerCase().includes(this.searchText)))
+          }
+        )
+      }
+      // console.log('after search')
+      console.log('after search',this.filterGroups)
+      }
 
     // sort
     if('sortChoice' in changes) {  
       console.log('sort') 
+      console.log(this.filterGroups)
       switch (this.sortChoice) {
-        // case 'createdDate':
-        //   this.isFiltered = true;
-        //   this.filterGroups.forEach(
-        //     (group) => group.sort(
-        //       (user1, user2) => {
-        //         let d1: any = new Date(user1.dob),
-        //             d2: any = new Date(user2.dob);
-        //         return d1-d2;
-        //       }
-        //     ));
-        //   break;
         case 'lastName':
           this.isFiltered = true;
           this.filterGroups.forEach(
@@ -134,6 +127,10 @@ export class ListUsersComponent implements OnInit, OnChanges {
     {
       this.groups.push(groups);
     });
+    this.filterGroups=this.groups
+    console.log('init')
     console.log(this.groups)
+    console.log(this.filterGroups)
+
   }
 }

@@ -3,7 +3,7 @@
     {
       "id": 1,
       "firstName": "Vo Doan",
-      "lastName": "Kim Nhu",
+      "lastName": "Kim Nhu 3",
       "bod": null,
       "gender": "Female",
       "company": "ROSEN",
@@ -59,11 +59,11 @@
       "id": 6,
       "firstName": "Vo Doan ",
       "lastName": "Kim Nhu 2",
-      "bod": "2022-06-16",
+      "bod": null,
       "gender": "Female",
       "company": "ROSEN",
       "title": "Architechture",
-      "email": "nhu@gmail.com",
+      "email": "a@gmail.com",
       "status": "Active"
     }
   ]

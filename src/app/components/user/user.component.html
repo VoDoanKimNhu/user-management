@@ -9,7 +9,6 @@
         <p><strong>Last name: </strong>{{user.lastName}}</p>
         <p><strong>Tenant: </strong>{{user.company}}</p>
         <p><strong>Email address: </strong>{{user.email}}</p>
-        <!-- <p><strong>Status: </strong>{{user.status}}</p>   -->
         <div *ngIf="user.status == 'Active'; then thenBlock else elseBlock">
         </div>
             <ng-template #thenBlock >

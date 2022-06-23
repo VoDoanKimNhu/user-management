@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { PopupComponent } from '../popup/popup.component';
-import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 export interface popupName {
   popupName: string;
@@ -36,8 +36,6 @@ export class DashboardComponent implements OnInit {
     this.searchControl.valueChanges.pipe(
       debounceTime(400), distinctUntilChanged()
       ).subscribe((val) => {
-        // console.log('dashboard')
-        // console.log(val);
         this.searchText = val;
       });
 
@@ -45,7 +43,6 @@ export class DashboardComponent implements OnInit {
         .pipe()
         .subscribe((val) => {
             this.sortChoice=val;
-            // this.isAsc=;
       })
   }
 
@@ -67,6 +64,4 @@ export class DashboardComponent implements OnInit {
       this.popupName=result;
     });
   }
-
-
 }

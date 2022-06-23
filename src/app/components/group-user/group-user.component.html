@@ -2,8 +2,9 @@
     <fa-icon class="icon"
         [ngStyle]="{width: 24, height: 24}" 
         [icon]="faChevronCircleDown"
-        (click)="toggleUsers()"></fa-icon>
-    <!-- <p>{{group[0].title}}</p> -->
+        (click)="toggleUsers()"
+        ></fa-icon>
+    <p>{{group[0]?.title}}</p>
     <hr>
 </div>
 <ng-template #hideUsers>
@@ -11,8 +12,9 @@
         <fa-icon class="icon"
             [ngStyle]="{width: 24, height: 24}" 
             [icon]="faChevronCircleRight"
-            (click)="toggleUsers()"></fa-icon>
-        <!-- <p>{{group[0].title}}</p> -->
+            (click)="toggleUsers()"
+            ></fa-icon>
+        <p>{{group[0]?.title}}</p>
         <hr>
     </div>    
 </ng-template>

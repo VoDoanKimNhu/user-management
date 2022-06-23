@@ -1,6 +1,6 @@
 import { DialogData } from './DialogData';
-import { Component, OnInit, Inject, Input } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UserService } from '../../services/user.service';
 import { User } from './../../User';
 
@@ -22,8 +22,6 @@ export class PopupComponent implements OnInit {
     this.user = this.data.user;
     console.log('test data dialog');
     console.log(this.data.user);
-
-    // console.log(this?.data?.popupName);
   }
 
   ngOnInit(): void {
