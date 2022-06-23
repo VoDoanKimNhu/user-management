@@ -1,0 +1,39 @@
+<div class="dashboard">
+  <div class="create-sort-search">
+    <div class="create">
+      <app-button text="+ Create user" color="#00458F" fontColor="white" class="create-user-btn" (btnClick)="openDialog()"></app-button>
+    </div>
+    <div class="sort-search">
+      <div class="sort">
+        <label for="sort">Sort by &nbsp;</label>
+        <select [formControl]="sortControl" name="sort" id="sort" style="height: 36px; width: 120px; border: solid 1px lightgray; border-radius: 3px;">
+          <option value="createdDate">Created date</option>
+          <option value="lastName">Last name</option>
+          <option value="firstName">First name</option>
+          <option value="email">Email</option>
+        </select>
+        <fa-icon class="icon" 
+            [ngStyle]="{color: 'black', width: 24, height: 24}" 
+            [icon]="faArrowUp">
+          </fa-icon>
+      </div>
+      <div style="top: 94px; left: 1587px; width: 1px; height: 36px; border: 1px solid #707070;opacity: 1; margin-left: 10px; margin-right: 10px;"></div>
+      <div class="search">
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text search-icon" id="addon-wrapping" style="background-color: white; border-right-width: 0; height: 36px;">
+            <fa-icon class="icon"
+              [ngStyle]="{color: 'black', width: 24, height: 24}" 
+              [icon]="faSearch"
+            >
+            </fa-icon>
+          </span>
+          <input type="text" class="form-control" 
+              [formControl]="searchControl" placeholder="Search" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0; height: 36px">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <app-list-users [searchText]="searchText" [sortChoice]="sortChoice" class="container list-users"></app-list-users> 
+  </div>
+</div>

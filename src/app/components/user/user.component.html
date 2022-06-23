@@ -1,0 +1,22 @@
+
+
+<div class="user-info">
+    <div class="avatar">
+        <img src="../../../assets/avatar.svg" alt="Avatar" height="100%">
+    </div>
+    <div class="info">
+        <p><strong>First name: </strong>{{user.firstName}}</p>
+        <p><strong>Last name: </strong>{{user.lastName}}</p>
+        <p><strong>Tenant: </strong>{{user.company}}</p>
+        <p><strong>Email address: </strong>{{user.email}}</p>
+        <!-- <p><strong>Status: </strong>{{user.status}}</p>   -->
+        <div *ngIf="user.status == 'Active'; then thenBlock else elseBlock">
+        </div>
+            <ng-template #thenBlock >
+                <strong>Status: </strong><span style="color: green">{{user.status}}</span>
+            </ng-template>
+            <ng-template #elseBlock style="color: black">
+                <strong>Status: </strong><span style="color: black">{{user.status}}</span>
+            </ng-template>
+    </div>
+</div>

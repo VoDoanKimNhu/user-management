@@ -1,0 +1,28 @@
+.user-info {
+    background: #ffffff;    
+    display: flex;
+    height: 90%;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.avatar {
+    margin-right: 3%;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info {
+    width: 100%;
+    font-size: 80%;
+    line-height: 9px;
+}
+
+

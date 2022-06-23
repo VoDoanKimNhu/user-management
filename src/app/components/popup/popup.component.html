@@ -1,0 +1,10 @@
+<div mat-dialog-content *ngIf="this?.data?.popupName; else edit">
+  <app-form formName="CREATE NEW USER" (onStatusChange)="onStatusChange($event)" (closeDialog)="discard()" (addUser)="addUserDialog($event)"></app-form>
+</div>
+<code>
+  <!-- {{this.data.user}} -->
+</code>
+<ng-template #edit>
+  <app-form formName="EDIT USER" [editedUser]="this.data.user" (closeDialog)="discard()" (editUser)="editUserDialog($event)" (deleteUser)="deleteUserDialog($event)"></app-form>
+</ng-template>
+

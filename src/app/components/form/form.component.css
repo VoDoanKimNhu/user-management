@@ -1,0 +1,49 @@
+.header-form {
+    text-align: center;
+}
+
+.date-gender {
+    display: flex;
+    width: 100%;
+}
+
+.date {
+    width: 70%;
+}
+
+.gender {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.group-title {
+    height: 38px;
+}
+
+.title {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.btns {
+    float: right;
+    margin: 5px;
+}
+
+.form-group .ng-invalid.ng-touched {
+    border: red 1px solid;
+}
+
+.btn-create .ng-invalid {
+    color: grey;
+}
+
+.btn-edit{
+    position: absolute;
+    
+}
+

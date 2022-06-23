@@ -1,0 +1,31 @@
+.create-user-btn {
+    margin-left: 24px;
+}
+
+.create-sort-search {
+    padding-top: 2%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: #EEEEEE;
+}
+
+.sort-search {
+    margin-right: 24px;
+    display: flex;
+}
+
+.span-sort-search {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.list-users {
+    margin: 0px; 
+    padding: 0px;
+
+}
+
+.search-icon {
+    cursor: pointer;
+}

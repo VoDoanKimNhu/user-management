@@ -1,0 +1,14 @@
+.app-nav {
+}
+
+.right-nav {
+    width: 120px;
+    float: right;
+}
+
+.icon {
+    justify-content: space-between;
+    margin: 10px;
+    width: 40%;
+    height: 40%;
+}

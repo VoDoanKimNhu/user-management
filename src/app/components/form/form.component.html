@@ -1,0 +1,80 @@
+<div class="group-btns">
+  <div class="btns" *ngIf="(this.editedUser)">
+    <app-button text="DELETE" color="#00458F" fontColor="white" (click)= "onDeleteUser(profileForm)" (click)= "refreshComponent()"></app-button> 
+  </div>
+  
+  <div class="btns" *ngIf="(this.editedUser && !this.isReadonly)">
+    <app-button text="EDIT" color="#00458F" fontColor="white" (click)="onSubmit(profileForm)" (click)= "refreshComponent()"></app-button>  
+  </div>
+  <div class="btns" *ngIf="(this.editedUser && this.isReadonly)">
+      <app-button text="EDIT" color="#00458F" fontColor="white" (click)="handleReadonlyBtn()" (click)= "refreshComponent()" ></app-button> 
+  </div>  
+</div>
+
+<h1 class="header-form">{{formName}}</h1>
+<form [formGroup]="profileForm" status="profileForm.status" enctype="multipart/form-data" >
+  <div class="form-group">
+    <input hidden type="text" class="form-control" formControlName="id">
+  </div>
+  <div class="form-group">
+    <input type="text" placeholder="First name" class="form-control" formControlName="firstName" [readonly]="this.isReadonly">
+  </div>
+  <!-- <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
+  <div *ngIf="firstName.errors?.['required']">First name is required.</div>
+  <div *ngIf="firstName.errors?.['maxLength']">First name is 80 - maximum length.</div> -->
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Last name" formControlName="lastName" value="" [readonly]="this.isReadonly">
+  </div>
+  <div class="date-gender">
+    <div class="form-group date">
+      <input type="date" class="form-control input-date" placeholder="Date of birth" formControlName="dob" [readonly]="this.isReadonly">
+    </div>
+    <div class="form-group gender">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="1" formControlName="gender" [readonly]="this.isReadonly"> 
+        <label class="form-check-label" for="male">
+          Male
+        </label>
+      </div>
+      <div class="form-check">
+        <input checked="true" class="form-check-input" type="radio" value="2" formControlName="gender" [readonly]="this.isReadonly">
+        <label class="form-check-label" for="female">
+          Female
+        </label>
+      </div>
+    </div>  
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" value="ROSEN" readonly>
+  </div>
+  <div class="form-group group-title">
+    <select name="title" id="title" class="title form-control" formControlName="title">
+      <option value="none" selected disabled hidden>Title</option>
+      <option value="teamLead">Team lead</option>
+      <option value="architechture">Architechture</option>
+      <option value="webDev">Web Developer</option>
+      <option value="tester">Tester</option>
+      <option value="uiux">UI/UX</option>
+      <option value="dba">DBA</option>
+    </select>  
+  </div>
+  <div class="form-group">
+    <input type="email" class="form-control" placeholder="Email" formControlName="email" [readonly]="this.isReadonly">
+  </div>
+  <!-- <code>
+    {{profileForm.get('email')?.errors | json}} 
+  </code> -->
+</form>
+<div class="btns" *ngIf="profileForm.valid; else invalidBtn">
+  <app-button text="DISCARD" color="white" fontColor="grey" (click)="closeFormDialog()" (click)= "refreshComponent()"></app-button>  
+  <app-button [text]="(this.editedUser) ? 'EDIT' : 'CREATE USER'" color="#00458F" fontColor="white" (click)="onSubmit(profileForm)" (click)= "refreshComponent()" [ngClass]="{'disabled': !profileForm.valid}" class="btn-create"></app-button>        
+</div>
+<ng-template #invalidBtn>
+  <div class="btns">
+    <app-button text="DISCARD" color="white" fontColor="grey" (click)="closeFormDialog()" (click)= "refreshComponent()"></app-button>  
+    <app-button [text]="(this.editedUser) ? 'EDIT' : 'CREATE USER'" color="grey" fontColor="white" class="btn-create" (click)= "refreshComponent()"></app-button>          
+  </div>
+</ng-template>
+
+
+<p>Form Status: {{ profileForm.status }}</p>

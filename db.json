@@ -1,0 +1,70 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Vo Doan",
+      "lastName": "Kim Nhu",
+      "bod": null,
+      "gender": "Female",
+      "company": "ROSEN",
+      "title": "Architechture",
+      "email": "nhuvdk@gmail.com",
+      "status": "Active"
+    },
+    {
+      "id": 2,
+      "firstName": "Vo",
+      "lastName": "Tin",
+      "dob": "01/01/2001",
+      "gender": "Male",
+      "company": "ROSEN",
+      "title": "Architechture",
+      "email": "votin@gmail.com",
+      "status": "Active"
+    },
+    {
+      "id": 3,
+      "firstName": "Ha",
+      "lastName": "Huy",
+      "dob": "01/01/2001",
+      "gender": "Male",
+      "company": "ROSEN",
+      "title": "Architechture",
+      "email": "hahuy@gmail.com",
+      "status": "Active"
+    },
+    {
+      "id": 4,
+      "firstName": "Ho",
+      "lastName": "Lam",
+      "dob": "01/01/2000",
+      "gender": "Male",
+      "company": "ROSEN",
+      "title": "Architechture",
+      "email": "holam@gmail.com",
+      "status": "Active"
+    },
+    {
+      "id": 5,
+      "firstName": "Ho",
+      "lastName": "Lam",
+      "dob": "01/01/2000",
+      "gender": "Male",
+      "company": "ROSEN",
+      "title": "Team Lead",
+      "email": "holam@gmail.com",
+      "status": "Active"
+    },
+    {
+      "id": 6,
+      "firstName": "Vo Doan ",
+      "lastName": "Kim Nhu 2",
+      "bod": "2022-06-16",
+      "gender": "Female",
+      "company": "ROSEN",
+      "title": "Architechture",
+      "email": "nhu@gmail.com",
+      "status": "Active"
+    }
+  ]
+}
