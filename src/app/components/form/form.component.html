@@ -19,15 +19,12 @@
   <div class="form-group">
     <input type="text" placeholder="First name" class="form-control" formControlName="firstName" [readonly]="this.isReadonly">
   </div>
-  <!-- <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
-  <div *ngIf="firstName.errors?.['required']">First name is required.</div>
-  <div *ngIf="firstName.errors?.['maxLength']">First name is 80 - maximum length.</div> -->
   <div class="form-group">
     <input type="text" class="form-control" placeholder="Last name" formControlName="lastName" value="" [readonly]="this.isReadonly">
   </div>
   <div class="date-gender">
     <div class="form-group date">
-      <input type="date" class="form-control input-date" placeholder="Date of birth" formControlName="dob" [readonly]="this.isReadonly">
+      <input type="date" class="form-control input-date" placeholder="Date of birth" formControlName="dob" [readonly]="this.isReadonly" min="1900-01-01">
     </div>
     <div class="form-group gender">
       <div class="form-check">
@@ -49,7 +46,7 @@
   </div>
   <div class="form-group group-title">
     <select name="title" id="title" class="title form-control" formControlName="title">
-      <option value="none" selected disabled hidden>Title</option>
+      <option value="none"  disabled selected hidden>Title</option>
       <option value="teamLead">Team lead</option>
       <option value="architechture">Architechture</option>
       <option value="webDev">Web Developer</option>

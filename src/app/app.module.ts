@@ -26,6 +26,7 @@ import { FormComponent } from './components/form/form.component';
 import { PopupComponent } from './components/popup/popup.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
+import { UniqueEmailValidatorDirective } from './shared/unique-email-validator.directive';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { HomeComponent } from './components/home/home.component';
     FormComponent,
     PopupComponent,
     HomeComponent,
+    UniqueEmailValidatorDirective,
   ],
   imports: [
     BrowserModule,

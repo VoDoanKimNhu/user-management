@@ -29,29 +29,26 @@ export class ListUsersComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(!this.isFiltered) {
-      this.filterGroups = cloneDeep(this.groups)
-    }
+    this.filterGroups = cloneDeep(this.groups)
 
     // search
     if('searchText' in changes || 'sortChoice' in changes) {  
-      if(this.searchText != '') {
+      console.log('searchText',this.searchText)
+      if(this.searchText != undefined) {
         for(let i=0; i<this.filterGroups.length; i++) {
-          console.log('in for',this.filterGroups[i])
           this.filterGroups[i] = this.filterGroups[i].filter(
             user => {
+              this.isFiltered = true;
               return ((user.firstName.toLowerCase().includes(this.searchText)) || 
               (user.lastName.toLowerCase().includes(this.searchText)) ||
-              (user.email.toLowerCase().includes(this.searchText)))
+              (user.email.toLowerCase().includes(this.searchText)));
             }
           )
         }  
-      }      
+      } 
 
     // sort
     if(this.sortChoice != '') {  
-      console.log('sort') 
-      console.log(this.filterGroups)
       switch (this.sortChoice) {
         case 'lastName':
           this.isFiltered = true;
@@ -105,14 +102,8 @@ export class ListUsersComponent implements OnInit, OnChanges {
             ));
           break;
       }
-
-      if(this.searchText == '' && this.sortChoice != '') {
-        this.filterGroups = cloneDeep(this.groups)
-        this.sortChoice = ''
-      }
-    }
-      console.log('sortChoice', this.sortChoice);
-    }
+    } 
+  } 
   }
 
   ngOnInit(): void {

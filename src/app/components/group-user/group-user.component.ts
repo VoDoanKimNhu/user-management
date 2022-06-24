@@ -7,6 +7,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { PopupComponent } from '../popup/popup.component';
 import { Subscription } from 'rxjs';
 
+interface toggleGroupUsers {
+  initState: true,
+  showUsers: boolean,
+  titleGroupUsers: string
+}
+
 @Component({
   selector: 'app-group-user',
   templateUrl: './group-user.component.html',
@@ -14,20 +20,28 @@ import { Subscription } from 'rxjs';
 })
 export class GroupUserComponent implements OnInit, OnChanges {
   @Input() group!: User[];
+  title!: string;
   faChevronCircleDown = faChevronCircleDown;
   faChevronCircleRight = faChevronCircleRight;
 
-  showUsers: boolean = true;
+  tglGroupUsers: toggleGroupUsers = {
+    initState: true,
+    showUsers: true,
+    titleGroupUsers: ''
+  }
+
   subscription!: Subscription;
   
   data!: DialogData;
 
   constructor(public dialog: MatDialog, private uiService: UiService) {
-    this.subscription = this.uiService.onToggle().subscribe((value) => (this.showUsers = value));
+    this.subscription = this.uiService.onToggle().subscribe((value) => {(this.tglGroupUsers = value)});
   }
+
   ngOnChanges(changes: SimpleChanges): void {
     if ('group' in changes) {
-      console.log(this.group[0]?.title);
+      console.log('-----');
+      console.log('group',this.group);
     }
   }
 
@@ -36,8 +50,6 @@ export class GroupUserComponent implements OnInit, OnChanges {
   }
 
   openDialog(user: User): void {
-    // console.log('test user param');
-    // console.log(user);
     const dialogRef = this.dialog.open(PopupComponent, {
       width: '100%',
       height: 'fit-content',
@@ -45,14 +57,15 @@ export class GroupUserComponent implements OnInit, OnChanges {
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      console.log('The dialog was closed');
-      console.log(result);
-      // this.popupName=result;
     });
   }
 
-  toggleUsers() {
-    this.uiService.toggleShowUser();
+  toggleUsers(e: any) {
+    this.title = e[0].title;
+    this.uiService.toggleShowUser(e[0].title);
+    console.log('after service');
+    console.log(this.tglGroupUsers.titleGroupUsers);
+    console.log(this.title);
   }
 
 }

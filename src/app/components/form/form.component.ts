@@ -179,4 +179,14 @@ export class FormComponent implements OnInit {
   this.uiService.handleReadonly();
  }
 
+
+ onChange(event: any) {
+  console.log(event.target.value);
+  
+ }
 }
+
+// function number(control: AbstractControl): ValidationErrors | null {
+//   const NUMBER_REGEX = /^([0-9])*([\.])?[0-9]+$/;
+//   return NUMBER_REGEX.test(control.value) ? null : { number: true };
+// }

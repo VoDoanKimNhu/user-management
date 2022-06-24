@@ -1,17 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "firstName": "Vo Doan",
-      "lastName": "Kim Nhu 3",
-      "bod": null,
-      "gender": "Female",
-      "company": "ROSEN",
-      "title": "Architechture",
-      "email": "nhuvdk@gmail.com",
-      "status": "Active"
-    },
-    {
       "id": 2,
       "firstName": "Vo",
       "lastName": "Tin",
@@ -48,7 +37,7 @@
       "id": 5,
       "firstName": "Ho",
       "lastName": "Lam",
-      "dob": "01/01/2000",
+      "bod": null,
       "gender": "Male",
       "company": "ROSEN",
       "title": "Team Lead",
@@ -57,13 +46,35 @@
     },
     {
       "id": 6,
-      "firstName": "Vo Doan ",
+      "firstName": "Vo Doan 1",
       "lastName": "Kim Nhu 2",
       "bod": null,
       "gender": "Female",
       "company": "ROSEN",
       "title": "Architechture",
       "email": "a@gmail.com",
+      "status": "Active"
+    },
+    {
+      "id": 7,
+      "firstName": "Lê ",
+      "lastName": "Khải",
+      "bod": null,
+      "gender": "Male",
+      "company": "ROSEN",
+      "title": "Team Lead",
+      "email": "leekhai@gmail.com",
+      "status": "Active"
+    },
+    {
+      "id": 8,
+      "firstName": "Trúc ",
+      "lastName": "Linh",
+      "bod": "2002-01-01",
+      "gender": "Female",
+      "company": "ROSEN",
+      "title": "UI/UX",
+      "email": "truclinh@gmail.com",
       "status": "Active"
     }
   ]
